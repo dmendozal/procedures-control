@@ -14,19 +14,25 @@
     </div>
     @endif
     <h6 class="mb-15">Formulario de Registro</h6>
-    <form action="{{ route('category.store')}}" method="POST">
+    <form action="{{ route('carrera.store')}}" method="POST">
         @csrf
         <div class="row mbn-15">
             <div class="col-6 mb-15">
-                <label>Nombre
-                    <input type="text" class="form-control" placeholder="Ej: Abarrotes" name="name" id="name" />
-                </label>
+                <label> Nombre </label>
+                    <input type="text" class="form-control" placeholder="Ej: Sistemas" name="nombre" id="nombre" />
+            </div>
+        </div>
+        <br>
+        <div class="row mbn-15">
+            <div class="col-6 mb-15">
+                <label>Codigo de Carrera </label>
+                    <input type="text" class="form-control" placeholder="Ej: SIS" name="codigo_carrera" id="codigo_carrera" />
             </div>
         </div>
         <br>
 
-        <button type="submit" class="button button-primary button-sm">Registrar Categoria</button>
-        <a class="button button-danger button-sm" href="{{ route('category.index') }}">Cancelar</a>
+        <button type="submit" class="button button-primary button-sm">Registrar Carrera</button>
+        <a class="button button-danger button-sm" href="{{ route('carrera.index') }}">Cancelar</a>
 
     </form>
 </div>

@@ -30,9 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', 'RolesController');
     Route::resource('usuarios', 'UsersController');
 
-    //MODULO VENTA
-    Route::resource('category', 'CategoryController');
-    Route::resource('product','ProductController');
-    Route::resource('sale', 'SaleController');
-    Route::resource('debtor', 'DebtorController');
+    //MODULO TRAMITE
+    Route::resource('carrera', 'CarreraController');
+    Route::resource('estudiante', 'EstudianteController');
 });

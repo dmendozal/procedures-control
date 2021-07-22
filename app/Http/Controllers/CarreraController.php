@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Carrera;
 
 class CarreraController extends Controller
 {
@@ -13,7 +14,8 @@ class CarreraController extends Controller
      */
     public function index()
     {
-        //
+        $carreras = Carrera::all();
+        return view('carrera.index', compact('carreras'));
     }
 
     /**
@@ -23,7 +25,7 @@ class CarreraController extends Controller
      */
     public function create()
     {
-        //
+        return view('carrera.create');
     }
 
     /**
@@ -34,7 +36,8 @@ class CarreraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $carrera = Carrera::create($request->all());
+        return redirect()->route('carrera.index');
     }
 
     /**
@@ -56,7 +59,8 @@ class CarreraController extends Controller
      */
     public function edit($id)
     {
-        //
+        $carrera = Carrera::find($id);
+        return view('carrera.edit', compact('carrera'));
     }
 
     /**
@@ -68,7 +72,9 @@ class CarreraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $carrera = Carrera::find($id);
+        $carrera->update($request->all());
+        return redirect()->route('carrera.index');
     }
 
     /**
@@ -79,6 +85,8 @@ class CarreraController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $carrera = Carrera::find($id);
+        $carrera->delete();
+        return redirect()->route('carrera.index');
     }
 }

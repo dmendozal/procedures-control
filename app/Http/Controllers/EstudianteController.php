@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Estudiante;
+use App\Carrera;
 class EstudianteController extends Controller
 {
     /**
@@ -13,7 +14,8 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        //
+        $estudiantes = Estudiante::all();
+        return view('estudiante.index', compact('estudiantes'));
     }
 
     /**
@@ -23,7 +25,8 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        //
+        $carreras = Carrera::all();
+        return view('estudiante.create', compact('carreras'));
     }
 
     /**
@@ -34,7 +37,8 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $estudiante = Estudiante::create($request->all());
+        return redirect()->route('estudiante.index');
     }
 
     /**
@@ -56,7 +60,9 @@ class EstudianteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $estudiante = Estudiante::find($id);
+        $carreras = Carrera::all();
+        return view('estudiante.edit', compact('estudiante', 'carreras'));
     }
 
     /**
@@ -68,7 +74,9 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $estudiante = Estudiante::find($id);
+        $estudiante->update($request->all());
+        return redirect()->route('estudiante.index');
     }
 
     /**
@@ -79,6 +87,8 @@ class EstudianteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $estudiante = Estudiante::find($id);
+        $estudiante->delete();
+        return redirect()->route('estudiante.index');
     }
 }

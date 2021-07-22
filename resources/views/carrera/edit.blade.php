@@ -12,19 +12,25 @@
     </div>
     @endif
     <h6 class="mb-15">Formulario de Edicion</h6>
-    <form action="{{route('category.update',[$category->idcategory])}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('carrera.update',[$carrera->idcarrera])}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row mbn-15">
             <div class="col-6 mb-15">
-                <label>Nombre
-                    <input type="text" class="form-control" name="name" id="name" value="{{ $category->name }}" />
-                </label>
+                <label>Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" value="{{ $carrera->nombre }}" />
+            </div>
+        </div>
+        <br>
+        <div class="row mbn-15">
+            <div class="col-6 mb-15">
+                <label>Codigo de Carrera</label>
+                    <input type="text" class="form-control" name="codigo_carrera" id="codigo_carrera" value="{{ $carrera->codigo_carrera }}" />
             </div>
         </div>
         <br>
         <button type="submit" class="button button-primary button-sm">Guardar Cambios</button>
-        <a class="button button-danger button-sm" href="{{ route('category.index') }}">Cancelar</a>
+        <a class="button button-danger button-sm" href="{{ route('carrera.index') }}">Cancelar</a>
     </form>
 </div>
 @endsection
