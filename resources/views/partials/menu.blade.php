@@ -19,10 +19,7 @@
                 <li class="has-sub-menu"><a href="#"><i class="ti-package"></i> <span>Modulo Tramites</span></a>
                     <ul class="side-header-sub-menu">
                         <li><a href="{{ route('carrera.index')}}"><span>Gestionar Carreras</span></a></li>
-                        <li><a href="{{ route('tramite.index') }}"><span>Gestionar Tramites</span></a></li>
-                        <li><a href="{{ route('estudiante.index') }}"><span>Gestionar Estudiantes</span></a></li>
-                        <li><a href="{{ route('tecnico.index')}}"><span>Gestionar Tecnicos</span></a></li>
-                        <li><a href="{{ route('tramite.index')}}"><span>Gestionar Tipo de Tramite</span></a></li>
+                        
                     </ul>
                 </li>
 
