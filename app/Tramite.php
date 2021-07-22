@@ -41,4 +41,20 @@ class Tramite extends Model
     {
         return $this->belongsTo(Estudiante::class, 'fkidestudiante');
     }
+
+    public function estadoTramite($estado)
+    {
+        switch (trim($estado)){
+            case "EP":
+                return "En proceso";
+            case "R":
+                return "Rechazado";
+            case "F":
+                return "Finalizado";
+            case "FR":
+                return "Finalizado y Recogido";
+            default:
+                return "";
+        }
+    }
 }

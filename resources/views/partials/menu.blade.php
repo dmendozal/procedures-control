@@ -8,7 +8,6 @@
         <nav class="side-header-menu" id="side-header-menu">
             <ul>
                 <li><a href="{{ route('home')}}"><i class="ti-home"></i> <span>Dashboard</span></a></li>
-                </li>
                 <li class="has-sub-menu"><a href="#"><i class="ti-package"></i> <span>Modulo Usuarios</span></a>
                     <ul class="side-header-sub-menu">
                         <li><a href="{{route('permisos.index')}}"><span>Gestionar Permisos</span></a></li>
@@ -20,6 +19,7 @@
                     <ul class="side-header-sub-menu">
                         <li><a href="{{ route('carrera.index')}}"><span>Gestionar Carreras</span></a></li>
                         <li><a href="{{ route('estudiante.index')}}"><span>Gestionar Estudiantes</span></a></li>
+                        <li><a href="{{ route('tramite.index')}}"><span>Gestionar Tramites</span></a></li>
                     </ul>
                 </li>
 

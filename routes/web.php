@@ -33,4 +33,5 @@ Route::group(['middleware' => ['auth']], function () {
     //MODULO TRAMITE
     Route::resource('carrera', 'CarreraController');
     Route::resource('estudiante', 'EstudianteController');
+    Route::resource('tramite', 'TramiteController');
 });

@@ -2,83 +2,102 @@
 
 namespace App\Http\Controllers;
 
+use App\Estudiante;
+use App\Tecnico;
+use App\TipoTramite;
+use App\Tramite;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class TramiteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $tramites = Tramite::all();
+        return view('tramite.index', compact('tramites'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $tipoTramites = TipoTramite::all();
+        $estudiantes = Estudiante::all();
+        $tecnicos = Tecnico::all();
+        return view('tramite.create', compact('tipoTramites', 'estudiantes', 'tecnicos'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $rutaCartaInicial = Storage::disk('public')->put('images', $request->file('carta_inicial'));
+            $rutaCartaFinal = Storage::disk('public')->put('images', $request->file('carta_final'));
+            $data = $request->all();
+            $data["carta_inicial"] = $rutaCartaInicial;
+            $data["carta_final"] = $rutaCartaFinal;
+            $data["fkiduser"] = Auth::id();
+            Tramite::create($data);
+            DB::commit();
+            return redirect()->route('tramite.index');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            dd($th);
+            return redirect()->route('tramite.index');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+        $tramite = Tramite::find($id);
+        $tecnicos = Tecnico::all();
+        $estudiantes = Estudiante::all();
+        $tipoTramites = TipoTramite::all();
+        return view('tramite.edit', compact('tramite', 'tecnicos', 'estudiantes', 'tipoTramites'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $tramite = Tramite::find($id);
+            $data = $request->all();
+            $data["fkiduser"] = Auth::id();
+            $rutaCartaInicial = $request->file('carta_inicial');
+            $rutaCartaFinal = $request->file('carta_final');
+
+            if ($rutaCartaFinal != null) {
+                $rutaCartaFinal = Storage::disk('public')->put('images', $rutaCartaFinal);
+                $data["carta_final"] = $rutaCartaFinal;
+            }
+
+            if ($rutaCartaInicial != null) {
+                $rutaCartaInicial = Storage::disk('public')->put('images', $rutaCartaInicial);
+                $data["carta_inicial"] = $rutaCartaInicial;
+            }
+
+            $tramite->update($data);
+            DB::commit();
+            return redirect()->route('tramite.index');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->route('tramite.index');
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        $tramite = Tramite::find($id);
+        $tramite->delete();
+        return redirect()->route('tramite.index');
     }
 }
