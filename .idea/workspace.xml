@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1862a6db-ed04-4d1e-a4cd-7f819ae6bf0c" name="Default" comment="" />
+    <list default="true" id="1862a6db-ed04-4d1e-a4cd-7f819ae6bf0c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Category.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Debtor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Detail.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DebtorController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SaleController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Person.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Rol.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rol.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Sale.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/category/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/category/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/category/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/category/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/debtor/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/debtor/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/debtor/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/debtor/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/product/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sale/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sale/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sale/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sale/show.blade.php" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -378,7 +408,9 @@
       <workItem from="1614282931966" duration="374000" />
       <workItem from="1614283320395" duration="1385000" />
       <workItem from="1616726914806" duration="8000" />
-      <workItem from="1626909814762" duration="626000" />
+      <workItem from="1626909814762" duration="3841000" />
+      <workItem from="1626918728712" duration="172000" />
+      <workItem from="1626919016422" duration="4000" />
     </task>
     <servers />
   </component>
@@ -419,9 +451,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -16,13 +16,13 @@
                         <li><a href="{{route('usuarios.index')}}"><span>Gestionar Usuarios</span></a></li>
                     </ul>
                 </li>
-                <li class="has-sub-menu"><a href="#"><i class="ti-package"></i> <span>Modulo Venta</span></a>
+                <li class="has-sub-menu"><a href="#"><i class="ti-package"></i> <span>Modulo Tramites</span></a>
                     <ul class="side-header-sub-menu">
-                        <li><a href="{{ route('category.index') }}"><span>Gestionar Categorias</span></a></li>
-                        <li><a href="{{ route('product.index') }}"><span>Gestionar Producto</span></a></li>
-                        <li><a href="{{route('sale.index')}}"><span>Gestionar Ventas</span></a></li>
-                        <li><a href="{{route('debtor.index')}}"><span>Gestionar Deudores</span></a></li>
-
+                        <li><a href="{{ route('carrera.index')}}"><span>Gestionar Carreras</span></a></li>
+                        <li><a href="{{ route('tramite.index') }}"><span>Gestionar Tramites</span></a></li>
+                        <li><a href="{{ route('estudiante.index') }}"><span>Gestionar Estudiantes</span></a></li>
+                        <li><a href="{{ route('tecnico.index')}}"><span>Gestionar Tecnicos</span></a></li>
+                        <li><a href="{{ route('tramite.index')}}"><span>Gestionar Tipo de Tramite</span></a></li>
                     </ul>
                 </li>
 

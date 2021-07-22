@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class TramiteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('product.index', compact('products'));
+        //
     }
 
     /**
@@ -26,8 +23,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('product.create', compact('categories'));
+        //
     }
 
     /**
@@ -38,15 +34,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product();
-        $product->name = $request->name;
-        $product->stock = $request->stock;
-        $product->description = $request->description;
-        $product->purchase_price = $request->purchase_price;
-        $product->sell_price = $request->sell_price;
-        $product->fkidcategory = $request->fkidcategory;
-        $product->save();
-        return redirect()->route('product.index');
+        //
     }
 
     /**
@@ -68,9 +56,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id);
-        $categories = Category::all();
-        return view('product.edit', compact('categories','product'));
+        //
     }
 
     /**
@@ -82,15 +68,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::find($id);
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->stock = $request->stock;
-        $product->purchase_price = $request->purchase_price;
-        $product->sell_price = $request->sell_price;
-        $product->fkidcategory = $request->fkidcategory;
-        $product->save();
-        return redirect()->route('product.index');
+        //
     }
 
     /**

@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Debtor;
-use App\Detail;
-use App\Person;
-use App\Sale;
 use Illuminate\Http\Request;
 
-class DebtorController extends Controller
+class TipoTramiteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +13,7 @@ class DebtorController extends Controller
      */
     public function index()
     {
-        $debtors = Debtor::all();
-        return view("debtor.index", compact('debtors'));
+        //
     }
 
     /**
@@ -28,8 +23,7 @@ class DebtorController extends Controller
      */
     public function create()
     {
-        $persons = Person::all();
-        return view("debtor.create", compact('persons'));
+        //
     }
 
     /**
@@ -40,9 +34,7 @@ class DebtorController extends Controller
      */
     public function store(Request $request)
     {
-        Person::create($request->all());
-
-        return SaleController::create();
+        //
     }
 
     /**
@@ -53,10 +45,7 @@ class DebtorController extends Controller
      */
     public function show($id)
     {
-        $debtor = Debtor::find($id);
-        $details = Detail::where('fkidsale', $debtor->fkidsale)->get();
-
-        return view('debtor.show', compact('debtor','details'));
+        //
     }
 
     /**
@@ -67,8 +56,7 @@ class DebtorController extends Controller
      */
     public function edit($id)
     {
-        $debtor = Debtor::find($id);
-        return view("debtor.edit", compact('debtor'));
+        //
     }
 
     /**
@@ -80,7 +68,7 @@ class DebtorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request, $id);
+        //
     }
 
     /**
