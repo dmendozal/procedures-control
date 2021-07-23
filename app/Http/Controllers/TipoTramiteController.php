@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\TipoTramite;
 class TipoTramiteController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class TipoTramiteController extends Controller
      */
     public function index()
     {
-        //
+        $tipo_tramite = TipoTramite::all();
+        return view('tipo_tramites.index',compact('tipo_tramite')); 
     }
 
     /**
@@ -23,7 +24,7 @@ class TipoTramiteController extends Controller
      */
     public function create()
     {
-        //
+       return view('tipo_tramites.create');
     }
 
     /**
@@ -34,7 +35,9 @@ class TipoTramiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tipo_tramites = TipoTramite::create($request->all());
+     
+        return redirect()->route('tipo_tramites.index');
     }
 
     /**
@@ -56,7 +59,8 @@ class TipoTramiteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tipo_tramite = TipoTramite::find($id);
+        return view('tipo_tramites.edit',compact('tipo_tramite'));
     }
 
     /**
@@ -68,7 +72,9 @@ class TipoTramiteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tipo_tramite = TipoTramite::find($id);
+        $tipo_tramite->update($request->all());
+        return redirect()->route('tipo_tramites.index');
     }
 
     /**
@@ -79,6 +85,8 @@ class TipoTramiteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tipo_tramite = TipoTramite::find($id);
+        $tipo_tramite->delete();
+        return redirect()->route('tipo_tramites.index');
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Tecnico;
 class TecnicoController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class TecnicoController extends Controller
      */
     public function index()
     {
-        //
+        $tecnicos = Tecnico::all();
+        return view('tecnico.index',compact('tecnicos'));
     }
 
     /**
@@ -23,7 +24,7 @@ class TecnicoController extends Controller
      */
     public function create()
     {
-        //
+        return view('tecnico.create');
     }
 
     /**
@@ -34,7 +35,9 @@ class TecnicoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tecnico = Tecnico::create($request->all());
+        
+        return  redirect()->route('tecnico.index');
     }
 
     /**
@@ -56,7 +59,8 @@ class TecnicoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tecnico = Tecnico::find($id);
+        return view ('tecnico.edit',compact('tecnico'));
     }
 
     /**
@@ -68,7 +72,10 @@ class TecnicoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+        $tecnico = Tecnico::find($id);
+        $tecnico->update($request->all());
+        return  redirect()->route('tecnico.index');
     }
 
     /**
@@ -79,6 +86,8 @@ class TecnicoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tecnico = Tecnico::find($id);
+        $tecnico->delete();
+        return  redirect()->route('tecnico.index');
     }
 }

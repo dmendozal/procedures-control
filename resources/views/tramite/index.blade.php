@@ -28,7 +28,8 @@
                 @foreach ($tramites as $key => $tramite)
                 <tr data-entry-id="{{ $key }}">
                     <td>{{ $key+1 }}</td>
-                    <td><img src="{{ asset("storage/".$tramite->carta_inicial) }}" alt=""></td>
+                   {{storage_patch()}}
+                    <td><img src="{{ asset('storage/app/public/'.$tramite->carta_inicial) }}" alt=""></td>
                     <td><img src="{{ asset("storage/".$tramite->carta_final) }}" alt=""></td>
                     <td>{{ $tramite->fecha_inicio }}</td>
                     <td>{{ $tramite->fecha_final }}</td>

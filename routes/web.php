@@ -34,4 +34,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('carrera', 'CarreraController');
     Route::resource('estudiante', 'EstudianteController');
     Route::resource('tramite', 'TramiteController');
+    Route::resource('tipo_tramites', 'TipoTramiteController');
+    Route::resource('tecnico', 'TecnicoController');
 });

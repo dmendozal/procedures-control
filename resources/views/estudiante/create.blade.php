@@ -71,8 +71,8 @@
             </div>
             <br>
 
-            <button type="submit" class="button button-primary button-sm">Registrar Carrera</button>
-            <a class="button button-danger button-sm" href="{{ route('carrera.index') }}">Cancelar</a>
+            <button type="submit" class="button button-primary button-sm">Registrar Estudiante</button>
+            <a class="button button-danger button-sm" href="{{ route('estudiante.index') }}">Cancelar</a>
 
         </form>
     </div>
