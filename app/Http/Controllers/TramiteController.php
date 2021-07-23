@@ -7,6 +7,7 @@ use App\Tecnico;
 use App\TipoTramite;
 use App\Tramite;
 use App\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -37,15 +38,12 @@ class TramiteController extends Controller
     {
         DB::beginTransaction();
         try {
+           
             $rutaCartaInicial = Storage::disk('storage')->put('images', $request->file('carta_inicial'));
-            //$rutaCartaFinal = Storage::disk('storage')->put('images', $request->file('carta_final'));
             $data = $request->all();
-            /***********/
             $data ["fecha_inicio"]=date('y-m-d h:i:s', time());
-            /* final_final */
-            /***********/
             $data["carta_inicial"] = $rutaCartaInicial;
-            //$data["carta_final"] = $rutaCartaFinal;
+
             $data["estado"]="EP";
             $data["fkiduser"] = Auth::id();
             Tramite::create($data);
@@ -60,14 +58,16 @@ class TramiteController extends Controller
 
     public function show($id)
     {
-        //
+       
+        $tramite = Tramite::find($id);
+        return view('tramite.show', compact('tramite'));
     }
 
 
     public function edit($id)
     {
         $tramite = Tramite::find($id);
-        return view('tramite.edit', compact('tramite',));
+        return view('tramite.edit', compact('tramite'));
     }
     public function entregar($id)
     {
@@ -84,22 +84,12 @@ class TramiteController extends Controller
         try {
             $tramite = Tramite::find($id);
             $data = $request->all();
-            $data["carta_inicial"]=$tramite->carta_inicial;
-            $data["fecha_inicio"]=$tramite->fecha_inicio;
             $data["fecha_final"] = date('y-m-d h:i:s', time());
-            $data["fkidtipo_tramite"]=$tramite->fkidtipo_tramite;
-            $data["fkiduser"]=$tramite->fkiduser;
-            $data["fkidtecnico"]=$tramite->fkidtecnico;
-            $data["fkidestudiante"]=$tramite->fkidestudiante;
-            $rutaCartaFinal = $request->file('carta_final');
 
-            if ($rutaCartaFinal != null) {
-                $rutaCartaFinal = Storage::disk('public')->put('images', $rutaCartaFinal);
+                $rutaCartaFinal = $request->file('carta_final');
+                
+                $rutaCartaFinal = Storage::disk('storage')->put('images', $request->file('carta_final'));
                 $data["carta_final"] = $rutaCartaFinal;
-            }
-
-        
-
             $tramite->update($data);
             DB::commit();
             return redirect()->route('tramite.index');

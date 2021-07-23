@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@section('title', 'Tramites')
 <a href="{{route('tramite.create')}}" class="button button-success button-sm">
     Registrar Tramite
 </a>
@@ -11,7 +12,7 @@
         <table class="table table-bordered data-table data-table-export">
             <thead>
                 <tr>
-                    <th>Nro</th>
+                    <th>Nro De tramite</th>
                     <th>Tipo de Tramite</th>
                     <th>Fecha Inicio</th>
                     <th>Estudiante</th>
@@ -23,7 +24,7 @@
             <tbody>
                 @foreach ($tramites as $key => $tramite)
                 <tr data-entry-id="{{ $key }}">
-                    <td>{{ $key+1 }}</td>
+                    <td>{{ $tramite->idtramite }}</td>
                     <td>{{ $tramite->tipoTramite->nombre }}</td>
                     <td>{{ $tramite->fecha_inicio }}</td>
                     <td>{{ $tramite->estudiante->nombre }}</td>
@@ -47,7 +48,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <th>Nro</th>
+                    <th>Nro de tramite</th>
                     <th>Tipo de Tramite</th>
                     <th>Fecha Inicio</th>
                     <th>Estudiante</th>

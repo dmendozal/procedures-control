@@ -1,52 +1,99 @@
 @extends('layouts.app')
-@section('title', 'Detalle Estado')
+@section('title', 'Detalle Tramite')
 @section('content')
-<div class="col-lg-12 col-12 mb-20">
-    <div class="card">
-        <div class="card-header">
-            Detalle del Estado
-        </div>
-        <div class="card-body">
+<div class="card-body">
             <table class="table table-bordered table-striped">
                 <tbody>
                     <tr>
                         <th>
-                            Nro
+                            Numero de tramite
                         </th>
                         <td>
-                            {{ $estado->idestado }}
+                            {{ $tramite->idtramite }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            Sigla
+                            Tipo de tramite
                         </th>
                         <td>
-                            {{ $estado->sigla }}
+                        {{ $tramite->tipoTramite->nombre }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            Nombre
+                            Estudiante
                         </th>
                         <td>
-                            {{ $estado->nombre }}
+                        {{ $tramite->estudiante->nombre }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            Estado
+                            Tecnico
                         </th>
                         <td>
-                            {{ $estado->estado==1?'Activo':'Inactivo' }}
+                        {{ $tramite->tecnico->nombre }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            Fecha de Inico del Tramite
+                        </th>
+                        <td>
+                            {{ $tramite->fecha_inicio }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Secretaria que lo recepciono
+                        </th>
+                        <td>
+                        {{ $tramite->user->name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Carta Presentada por el estudiante
+                        </th>
+                        <td>
+                        <img src="{{ asset('storage/'.$tramite->carta_inicial) }}"   height="300" width="auto" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Fecha de Entrega
+                        </th>
+                        <td>
+                            {{ ($tramite->fecha_inicio=="null")? "Nose entrego todavia" : $tramite->fecha_inicio }}
+                        </td>
+                    </tr>
+
+                    </tr>
+                    <tr>
+                        <th>
+                            Secretaria que lo Entrego
+                        </th>
+                        <td>
+                        {{ ($tramite->user->name==null)?"Nose entrego todavia":$tramite->user->name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Carta Entregada al estudiante
+                        </th>
+                        <td>
+                            @if ($tramite->carta_final==null)
+                           Nose entrego todavia
+                           
+                           @endif
+                           @if($tramite->carta_final!=null)
+                           <img src="{{ asset('storage/'.$tramite->carta_final) }}"   height="300" width="auto" />
+                        @endif
+                        </td>
                 </tbody>
             </table>
             <div>
-                <a class="button button-danger button-sm" href="{{ route('estado.index') }}">Cancelar</a> </div>
+                <a class="button button-danger button-sm" href="{{ url('/home') }}">Volver</a> </div>
         </div>
-    </div>
-</div>
-<h6>{{ Auth()->user()->showCounter(20)}}</h6>
 @endsection

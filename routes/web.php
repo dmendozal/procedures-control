@@ -37,4 +37,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('tecnico', 'TecnicoController');
     //Otras Rutas
     Route::get('tramite/entregar/{id}', 'TramiteController@entregar')->name('tramite.entregar');
+   
 });

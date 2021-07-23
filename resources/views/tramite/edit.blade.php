@@ -20,10 +20,10 @@
             <div class="col-6 mb-15">
                 <label> Carta Final </label>
                 <div class="col-md-12 mb-2">
-                    <img id="preview-image-before-upload_carta_inicial" src="{{asset("storage/".$tramite->carta_final)}}"
+                    <img id="preview-image-before-upload_carta_final" src=""
                          alt="preview image" style="max-height: 250px;">
                 </div>
-                <label for="nombre"></label><input type="file" class="form-control" name="carta_final" id="carta_final" value="{{ $tramite->carta_final }}"/>
+                <label for="nombre"></label><input type="file" class="form-control" name="carta_final" id="carta_final" required />
             </div>
         </div>
         <br>
