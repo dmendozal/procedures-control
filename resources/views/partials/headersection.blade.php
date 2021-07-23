@@ -23,26 +23,7 @@
                             <div class="col-auto"><button class="side-header-toggle"><i
                                         class="zmdi zmdi-menu"></i></button></div>
 
-                            <!--Header Search-->
-                            <div class="col-auto">
-
-                                <div class="header-search">
-
-                                    <button class="header-search-open d-block d-xl-none"><i
-                                            class="zmdi zmdi-search"></i></button>
-
-                                    <div class="header-search-form">
-                                        <form action="" method="POST">
-                                            @csrf
-                                            <input type="search" name="text" id="search" placeholder="Search Heres">
-                                            <button><i class="zmdi zmdi-search"></i></button>
-                                        </form>
-                                        <button class="header-search-close d-block d-xl-none"><i
-                                                class="zmdi zmdi-close"></i></button>
-                                    </div>
-
-                                </div>
-                            </div>
+                           
 
                         </div>
                     </div><!-- Side Header Toggle & Search End -->
@@ -52,11 +33,7 @@
 
                         <ul class="header-notification-area">
 
-                            <!--Mail-->
-                            <li class="adomx-dropdown col-auto">
-                                <a class="toggle" href="#"><i class="zmdi zmdi-comment-edit"></i><span
-                                        class="badge"></span></a>
-                            </li>
+                            
 
                             <li class="adomx-dropdown col-auto">
                                 <a class="toggle" href="#">

@@ -3,7 +3,7 @@
     <div class="container-fluid">
 
         <div class="footer-copyright text-center">
-            <p class="text-body-light">2019 &copy; <a href="https://themeforest.net/user/codecarnival">Daniel Mendoza</a></p>
+            <p class="text-body-light">2021 &copy; </p>
         </div>
 
     </div>

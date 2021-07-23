@@ -30,13 +30,17 @@
                     <td>{{ $tramite->tecnico->nombre }}</td>
                     <td>{{ $tramite->estadoTramite($tramite->estado) }}</td>
                     <td>
-                        <a class="button button-info button-sm"
-                            href="{{($tramite->estado=='EP')?route('tramite.edit', $tramite->idtramite):route('tramite.entregar', $tramite->idtramite) }}"
-                            onsubmit="{{($tramite->estado!='EP') ? "return confirm('¿Está seguro?');":""}}" style="display: inline-block;">
-                            
-                        >
-                            {{($tramite->estado=='EP') ? "Actualizar":"Entregar"}}
-                        </a>
+                        @if($tramite->estado!='FR')
+                        <form action="{{($tramite->estado=='EP')?route('tramite.edit', $tramite->idtramite):route('tramite.entregar', $tramite->idtramite) }}" method="get"
+                            onsubmit="return confirm('¿Se entregara la carta de respuesta?');" style="display: inline-block;">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="submit" class="{{($tramite->estado=='EP')? "button button-info button-sm" : "button button-danger button-sm"}}" value="{{($tramite->estado=='EP') ? "Actualizar":"Entregar"}}">
+                        </form>
+                        @endif
+                        <a  class="button button-primary button-sm"
+                        href="{{ route('tramite.show', $tramite->idtramite) }}">
+                        Ver</a>
                     </td>
                 </tr>
                 @endforeach

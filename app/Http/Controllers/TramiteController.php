@@ -71,7 +71,9 @@ class TramiteController extends Controller
     }
     public function entregar($id)
     {
-        
+        $tramite = Tramite::find($id);
+        $datos = ['estado' => "FR"];
+        $tramite->update($datos);
         return redirect()->route('tramite.index');
 
     }

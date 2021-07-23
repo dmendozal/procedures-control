@@ -45,8 +45,10 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $user = User::create($request->all());
         Session::flash('save', 'Se ha guardado correctamente');
+        
         return redirect()->route('usuarios.index');
     }
 

@@ -8,7 +8,7 @@
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <span class="login100-form-title p-b-51">
-                        Tienda Justina
+                        ITSC
                     </span>
                     <div class="wrap-input100 validate-input m-b-16" data-validate="Correo invalido">
                         <input class="input100" type="text" @error('email') is-invalid @enderror name="email"
@@ -32,24 +32,20 @@
                     </span>
                     @enderror
 
-                    <div class="flex-sb-m w-full p-t-3 p-b-24">
+                    <div class="flex-sb-m w-full">
                         <div class="contact100-form-checkbox">
                             <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                             <label class="label-checkbox100" for="ckb1">
-                                Remember me
+                                Recordar
                             </label>
                         </div>
 
-                        <div>
-                            <a href="#" class="txt1">
-                                Forgot?
-                            </a>
-                        </div>
+                        
                     </div>
 
                     <div class="container-login100-form-btn m-t-17">
                         <button class="login100-form-btn">
-                            Login
+                            Iniciar Sesión
                         </button>
                     </div>
                 </form>

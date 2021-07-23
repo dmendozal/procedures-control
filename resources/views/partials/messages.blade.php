@@ -1,4 +1,5 @@
-@if (Session::has('save'))
+<!--
+    @if (Session::has('save'))
 <div class="alert alert-solid-success" role="alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>{{ Session::get('save') }}</strong>
@@ -29,3 +30,4 @@
     <strong>{{ Session::get('validacion') }}</strong>
 </div>
 @endif
+-->

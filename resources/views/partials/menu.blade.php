@@ -7,7 +7,6 @@
 
         <nav class="side-header-menu" id="side-header-menu">
             <ul>
-                <li><a href="{{ route('home')}}"><i class="ti-home"></i> <span>Dashboard</span></a></li>
                 <li><a href="{{ route('home')}}"><i class="ti-home"></i> <span>Inicio</span></a></li>
                 </li>
                 <li class="has-sub-menu"><a href="#"><i class="ti-package"></i> <span>Modulo Usuarios</span></a>

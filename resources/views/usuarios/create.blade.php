@@ -59,14 +59,14 @@
                 </em>
                 @endif
             </div>
-            <div class="col-6 mb-15"><label>Nombre<input type="text" class="form-control" placeholder="Nombre"
-                name="name" /></label></div>
-            <div class="col-6 mb-15"><label>Apellido<input type="text" class="form-control" placeholder="Apellido"
-                        name="apellido" /></label></div>
-            <div class="col-6 mb-15"><label>Direccion<input type="text" class="form-control" placeholder="Direccion"
-                        name="direccion" /></label></div>
-            <div class="col-6 mb-15"><label>Telefono o Celular<input type="text" class="form-control"
-                        placeholder="Telefono o Celular" name="telefono" /></label></div>
+            <div class="col-6 mb-15"><label>Nombre</label><input type="text" class="form-control" placeholder="Nombre"
+                name="name" /></div>
+            <div class="col-6 mb-15"><label>Apellido</label><input type="text" class="form-control" placeholder="Apellido"
+                        name="apellido" /></div>
+            <div class="col-6 mb-15"><label>Direccion</label><input type="text" class="form-control" placeholder="Direccion"
+                        name="direccion" /></div>
+            <div class="col-6 mb-15"><label>Telefono o Celular</label><input type="text" class="form-control"
+                        placeholder="Telefono o Celular" name="telefono" /></div>
         <div style="text-align: center; padding-top: 5%">
             <button type="submit" class="button button-primary button-sm">Registrar Usuario</button>
             <a class="button button-danger button-sm" href="{{ route('usuarios.index') }}">Cancelar</a>
