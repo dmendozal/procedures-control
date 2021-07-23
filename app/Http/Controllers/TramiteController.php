@@ -72,7 +72,7 @@ class TramiteController extends Controller
     public function entregar($id)
     {
         $tramite = Tramite::find($id);
-        $datos = ['estado' => "FR"];
+        $datos = ['estado' => "FR",'fecha_final'=>date('y-m-d h:i:s', time())];
         $tramite->update($datos);
         return redirect()->route('tramite.index');
 
@@ -84,9 +84,9 @@ class TramiteController extends Controller
         try {
             $tramite = Tramite::find($id);
             $data = $request->all();
-            $data["fecha_final"] = date('y-m-d h:i:s', time());
+            
 
-                $rutaCartaFinal = $request->file('carta_final');
+            $rutaCartaFinal = $request->file('carta_final');
                 
                 $rutaCartaFinal = Storage::disk('storage')->put('images', $request->file('carta_final'));
                 $data["carta_final"] = $rutaCartaFinal;

@@ -65,7 +65,13 @@
                             Fecha de Entrega
                         </th>
                         <td>
-                            {{ ($tramite->fecha_inicio=="null")? "Nose entrego todavia" : $tramite->fecha_inicio }}
+                        @if ($tramite->fecha_final==null)
+                           Nose entrego todavia
+                           
+                           @endif
+                           @if($tramite->fecha_final!=null)
+                             {{$tramite->fecha_final}}
+                            @endif
                         </td>
                     </tr>
 
