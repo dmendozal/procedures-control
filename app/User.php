@@ -5,6 +5,7 @@ namespace App;
 use App\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -62,25 +63,10 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
-    public function addAssignment()
+    public function setPasswordAttribute($input)
     {
-        return $this->belongsToMany(Activo::class, 'asignacion', 'fkiduser', 'fkidactivo');
-    }
-
-    public function roles()
-    {
-        return $this->belongsToMany(Rol::class, 'model_has_roles', 'model_id', 'role_id');
-    }
-    public function countPage($id)
-    {
-        $page = Page::findOrFail($id);
-        $page->visit = $page->visit + 1;
-        $page->save();
-    }
-
-    public function showCounter($id)
-    {
-        $page = Page::findOrFail($id);
-        return $page->name . " || Numero de visitas: " . $page->visit;
+        if ($input) {
+            $this->attributes['password'] = app('hash')->needsRehash($input) ? Hash::make($input) : $input;
+        }
     }
 }
