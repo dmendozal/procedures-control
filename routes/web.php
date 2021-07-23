@@ -18,7 +18,6 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -36,4 +35,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('tramite', 'TramiteController');
     Route::resource('tipo_tramites', 'TipoTramiteController');
     Route::resource('tecnico', 'TecnicoController');
+    //Otras Rutas
+    Route::get('tramite/entregar/{id}', 'TramiteController@entregar')->name('tramite.entregar');
 });

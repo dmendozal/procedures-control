@@ -15,17 +15,7 @@
     <form action="{{route('tramite.update',[$tramite->idtramite])}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <div class="row mbn-15">
-            <div class="col-6 mb-15">
-                <label> Carta Inicial </label>
-                <div class="col-md-12 mb-2">
-                    <img id="preview-image-before-upload_carta_inicial" src="{{asset("storage/".$tramite->carta_inicial)}}"
-                         alt="preview image" style="max-height: 250px;">
-                </div>
-                <label for="nombre"></label><input type="file" class="form-control" name="carta_inicial" id="carta_inicial" value="{{ $tramite->carta_inicial }}"/>
-            </div>
-        </div>
-        <br>
+        
         <div class="row mbn-15">
             <div class="col-6 mb-15">
                 <label> Carta Final </label>
@@ -37,28 +27,11 @@
             </div>
         </div>
         <br>
-        <div class="row mbn-15">
-            <div class="col-6 mb-15">
-                <label> Fecha Inicio </label>
-                <label for="nombre"></label><label for="fecha_inicio"></label><input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" value="{{$tramite->fecha_inicio}}" />
-            </div>
-        </div>
-        <br>
-        <div class="row mbn-15">
-            <div class="col-6 mb-15">
-                <label> Fecha Final </label>
-                <label for="nombre"></label><label for="final_final"></label><input type="date" class="form-control" name="fecha_final" id="final_final" value="{{$tramite->fecha_final}}"/>
-            </div>
-        </div>
-        <br>
         <div class="col-6 mb-15">
             <label for="estado">Estado</label>
             <select name="estado" id="estado" class="form-control select2" required>
-                <option value="{{$tramite->estado}}">
-                    {{$tramite->estadoTramite($tramite->estado)}}
-                </option>
                 <option value="EP">
-                    En proceso
+                   Selecionar
                 </option>
                 <option value="R">
                     Rechazado
@@ -66,49 +39,6 @@
                 <option value="F">
                     Finalizado
                 </option>
-                <option value="FR">
-                    Finalizado y recogido
-                </option>
-            </select>
-        </div>
-        <br>
-        <div class="col-6 mb-15">
-            <label for="fkidtipo_tramite">Tipo de Tramite </label>
-            <label for="fkidtipo_tramite"></label><select name="fkidtipo_tramite" id="fkidtipo_tramite" class="form-control select2" required>
-                <option value="{{$tramite->fkidtipo_tramite}}">
-                    {{$tramite->tipoTramite->nombre}}
-                </option>
-                @foreach ($tipoTramites as $tipoTramite)
-                    <option value="{{ $tipoTramite->idtipo_tramite }}">
-                        {{ $tipoTramite->nombre }}
-                    </option>
-                @endforeach
-            </select>
-        </div>
-        <div class="col-6 mb-15">
-            <label for="fkidestudiante"> Estudiante </label>
-            <label for="fkidestudiante"></label><select name="fkidestudiante" id="fkidestudiante" class="form-control select2" required>
-                <option value="{{$tramite->fkidestudiante}}">
-                    {{$tramite->estudiante->nombre}}
-                </option>
-                @foreach ($estudiantes as $estudiante)
-                    <option value="{{ $estudiante->idestudiante }}">
-                        {{ $estudiante->nombre }}
-                    </option>
-                @endforeach
-            </select>
-        </div>
-        <div class="col-6 mb-15">
-            <label for="fkidtecnico"> Tecnico </label>
-            <label for="fkidtecnico"></label><select name="fkidtecnico" id="fkidtecnico" class="form-control select2" required>
-                <option value="{{$tramite->fkidtecnico}}">
-                    {{$tramite->tecnico->nombre}}
-                </option>
-                @foreach ($tecnicos as $tecnico)
-                    <option value="{{ $tecnico->idtecnico }}">
-                        {{ $tecnico->nombre }}
-                    </option>
-                @endforeach
             </select>
         </div>
         <br>

@@ -27,49 +27,6 @@
             </div>
         </div>
         <br>
-        <div class="row mbn-15">
-            <div class="col-6 mb-15">
-                <label> Carta Final </label>
-                <div class="col-md-12 mb-2">
-                    <img id="preview-image-before-upload_carta_final" src=""
-                         alt="preview image" style="max-height: 250px;">
-                </div>
-                <label for="nombre"></label><input type="file" class="form-control" name="carta_final" id="carta_final" />
-            </div>
-        </div>
-        <br>
-        <div class="row mbn-15">
-            <div class="col-6 mb-15">
-                <label> Fecha Inicio </label>
-                <label for="nombre"></label><label for="fecha_inicio"></label><input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" />
-            </div>
-        </div>
-        <br>
-        <div class="row mbn-15">
-            <div class="col-6 mb-15">
-                <label> Fecha Final </label>
-                <label for="nombre"></label><label for="final_final"></label><input type="date" class="form-control" name="fecha_final" id="final_final" />
-            </div>
-        </div>
-        <br>
-        <div class="col-6 mb-15">
-            <label for="estado">Estado</label>
-            <select name="estado" id="estado" class="form-control select2" required>
-                <option value="EP">
-                    En proceso
-                </option>
-                <option value="R">
-                    Rechazado
-                </option>
-                <option value="F">
-                    Finalizado
-                </option>
-                <option value="FR">
-                    Finalizado y recogido
-                </option>
-            </select>
-        </div>
-        <br>
         <div class="col-6 mb-15">
             <label for="fkidtipo_tramite">Tipo de Tramite </label>
             <label for="fkidtipo_tramite"></label><select name="fkidtipo_tramite" id="fkidtipo_tramite" class="form-control select2" required>

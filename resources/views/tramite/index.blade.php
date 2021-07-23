@@ -12,15 +12,11 @@
             <thead>
                 <tr>
                     <th>Nro</th>
-                    <th>Carta Inicial</th>
-                    <th>Carta Final</th>
-                    <th>Fecha Inicio</th>
-                    <th>Fecha Final</th>
-                    <th>Estado</th>
                     <th>Tipo de Tramite</th>
-                    <th>Atendido Por</th>
-                    <th>Tecnico</th>
+                    <th>Fecha Inicio</th>
                     <th>Estudiante</th>
+                    <th>Tecnico</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -28,27 +24,19 @@
                 @foreach ($tramites as $key => $tramite)
                 <tr data-entry-id="{{ $key }}">
                     <td>{{ $key+1 }}</td>
-                   {{storage_patch()}}
-                    <td><img src="{{ asset('storage/app/public/'.$tramite->carta_inicial) }}" alt=""></td>
-                    <td><img src="{{ asset("storage/".$tramite->carta_final) }}" alt=""></td>
-                    <td>{{ $tramite->fecha_inicio }}</td>
-                    <td>{{ $tramite->fecha_final }}</td>
-                    <td>{{ $tramite->estadoTramite($tramite->estado) }}</td>
                     <td>{{ $tramite->tipoTramite->nombre }}</td>
-                    <td>{{ $tramite->user->name }}</td>
-                    <td>{{ $tramite->tecnico->nombre }}</td>
+                    <td>{{ $tramite->fecha_inicio }}</td>
                     <td>{{ $tramite->estudiante->nombre }}</td>
+                    <td>{{ $tramite->tecnico->nombre }}</td>
+                    <td>{{ $tramite->estadoTramite($tramite->estado) }}</td>
                     <td>
                         <a class="button button-info button-sm"
-                            href="{{ route('tramite.edit', $tramite->idtramite) }}">
-                            Editar
+                            href="{{($tramite->estado=='EP')?route('tramite.edit', $tramite->idtramite):route('tramite.entregar', $tramite->idtramite) }}"
+                            onsubmit="{{($tramite->estado!='EP') ? "return confirm('¿Está seguro?');":""}}" style="display: inline-block;">
+                            
+                        >
+                            {{($tramite->estado=='EP') ? "Actualizar":"Entregar"}}
                         </a>
-                        <form action="{{ route('tramite.destroy', $tramite->idtramite) }}" method="POST"
-                            onsubmit="return confirm('¿Está seguro?');" style="display: inline-block;">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="submit" class="button button-danger button-sm" value="Eliminar">
-                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -56,15 +44,11 @@
             <tfoot>
                 <tr>
                     <th>Nro</th>
-                    <th>Carta Inicial</th>
-                    <th>Carta Final</th>
-                    <th>Fecha Inicio</th>
-                    <th>Fecha Final</th>
-                    <th>Estado</th>
                     <th>Tipo de Tramite</th>
-                    <th>Atendido Por</th>
-                    <th>Tecnico</th>
+                    <th>Fecha Inicio</th>
                     <th>Estudiante</th>
+                    <th>Tecnico</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
             </tfoot>
