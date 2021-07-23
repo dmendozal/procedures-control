@@ -67,30 +67,6 @@
                         name="direccion" /></label></div>
             <div class="col-6 mb-15"><label>Telefono o Celular<input type="text" class="form-control"
                         placeholder="Telefono o Celular" name="telefono" /></label></div>
-            <div class="col-6 mb-15">
-                <label for="roles">Roles
-                    <span class="btn btn-info btn-sm select-all" style="padding-top: 0%">Select all</span>
-                    <span class="btn btn-info btn-sm deselect-all" style="padding-top: 0%">Deselect
-                        all</span>
-                </label>
-                <select name="roles[]" id="roles" class="form-control select2" multiple="multiple">
-                    @foreach($roles as $id => $roles)
-                    <option value="{{ $id }}"
-                        {{ (in_array($id, old('roles', [])) || isset($user) && $user->roles->contains($id)) ? 'selected' : '' }}>
-                        {{ $roles }}
-                    </option>
-                    @endforeach
-                </select>
-                @if($errors->has('roles'))
-                <em class="invalid-feedback">
-                    {{ $errors->first('roles') }}
-                </em>
-                @endif
-            </div>
-        </div>
-        <center>
-            <div class="col-6 mb-15"><label>Fotografia<input type="file" class="dropify" name="foto" /></label></div>
-        </center>
         <div style="text-align: center; padding-top: 5%">
             <button type="submit" class="button button-primary button-sm">Registrar Usuario</button>
             <a class="button button-danger button-sm" href="{{ route('usuarios.index') }}">Cancelar</a>

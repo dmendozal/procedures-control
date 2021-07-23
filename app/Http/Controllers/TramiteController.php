@@ -37,13 +37,8 @@ class TramiteController extends Controller
     {
         DB::beginTransaction();
         try {
-            /*****************************************/
-
-                
-
-            /*****************************************/
-            $rutaCartaInicial = Storage::disk('public')->put('images', $request->file('carta_inicial'));
-            $rutaCartaFinal = Storage::disk('public')->put('images', $request->file('carta_final'));
+            $rutaCartaInicial = Storage::disk('storage')->put('images', $request->file('carta_inicial'));
+            $rutaCartaFinal = Storage::disk('storage')->put('images', $request->file('carta_final'));
             $data = $request->all();
             $data["carta_inicial"] = $rutaCartaInicial;
             $data["carta_final"] = $rutaCartaFinal;

@@ -45,42 +45,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        // $user = User::create($request->all());\
-        if($request->file('foto')){
-            $file = $request->file('foto');
-            $path = public_path() . '/assets/images/avatar';
-            $fileName = uniqid() . $file->getClientOriginalName();
-            $file->move($path, $fileName);
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->input('password')),
-                'email_verified_at' => now(),
-                'created_at' => now(),
-                'updated_at' => now(),
-                'remember_token' => Str::random(10),
-                'apellido' => $request->apellido,
-                'direccion' => $request->direccion,
-                'telefono' => $request->telefono
-            ]);
-            $user->roles()->sync($request->roles);
-        }else{
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->input('password')),
-                'email_verified_at' => now(),
-                'created_at' => now(),
-                'updated_at' => now(),
-                'remember_token' => Str::random(10),
-                'apellido' => $request->apellido,
-                'direccion' => $request->direccion,
-                'telefono' => $request->telefono
-            ]);
-            $user->roles()->sync($request->roles);
-        };
+        $user = User::create($request->all());
         Session::flash('save', 'Se ha guardado correctamente');
-
         return redirect()->route('usuarios.index');
     }
 
