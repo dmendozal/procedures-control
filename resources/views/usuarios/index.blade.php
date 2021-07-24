@@ -19,7 +19,6 @@
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Email</th>
-                                <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,12 +29,7 @@
                                 <td>{{$user->apellido}}</td>
                                 <td>{{$user->email}}</td>
                                 
-                                <td>
-                                    @if($user->id!=1)
-                                    <a href="{{ route('usuarios.destroy', $user->id) }}"
-                                        class="button button-sm button-danger">Eliminar</a>
-                                    @endif
-                                </td>
+                               
                             </tr>
                             @endforeach
                         </tbody>
@@ -45,7 +39,6 @@
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Email</th>
-                                <th>Opciones</th>
                             </tr>
                         </tfoot>
                     </table>
