@@ -81,7 +81,7 @@
                             Secretaria que lo Entrego
                         </th>
                         <td>
-                        {{ ($tramite->user->name==null)?"Nose entrego todavia":$tramite->user->name }}
+                        {{ ($userf==null)?"Nose entrego todavia":$userf->name }}
                         </td>
                     </tr>
                     <tr>

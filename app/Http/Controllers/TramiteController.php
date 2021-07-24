@@ -58,9 +58,12 @@ class TramiteController extends Controller
 
     public function show($id)
     {
-       
+        $userf=null;
         $tramite = Tramite::find($id);
-        return view('tramite.show', compact('tramite'));
+        if($tramite->fkiduserf!=null){
+            $userf=User::find($tramite->fkiduserf);
+        }
+        return view('tramite.show', compact('tramite','userf'));
     }
 
 
@@ -72,7 +75,7 @@ class TramiteController extends Controller
     public function entregar($id)
     {
         $tramite = Tramite::find($id);
-        $datos = ['estado' => "FR",'fecha_final'=>date('y-m-d h:i:s', time())];
+        $datos = ['estado' => "FR",'fkiduserf'=>Auth::id(),'fecha_final'=>date('y-m-d h:i:s', time())];
         $tramite->update($datos);
         return redirect()->route('tramite.index');
 

@@ -18,7 +18,8 @@ class Tramite extends Model
         'fkidtipo_tramite',
         'fkiduser',
         'fkidtecnico',
-        'fkidestudiante'
+        'fkidestudiante',
+        'fkiduserf'
     ];
     protected $primaryKey = 'idtramite';
 

@@ -19,27 +19,22 @@
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Email</th>
-                                <th>Cargo</th>
                                 <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($usuarios as $key =>$user)
                             <tr>
-                                <td>{{$key+1}}</td>
+                                <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->apellido}}</td>
                                 <td>{{$user->email}}</td>
+                                
                                 <td>
-                                    @foreach($user->roles as $key => $rol)
-                                    <span class="badge badge-info">{{ $rol->name }}</span>
-                                    @endforeach
-                                </td>
-                                <td>
-                                    <a href="{{ route('usuarios.edit',$user->id)}}"
-                                        class="button button-sm button-primary">Editar</a>
+                                    @if($user->id!=1)
                                     <a href="{{ route('usuarios.destroy', $user->id) }}"
                                         class="button button-sm button-danger">Eliminar</a>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
@@ -50,7 +45,6 @@
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Email</th>
-                                <th>Cargo</th>
                                 <th>Opciones</th>
                             </tr>
                         </tfoot>
